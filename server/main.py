@@ -1,7 +1,7 @@
 from fastapi import FastAPI, UploadFile, File
 import uvicorn
 import os
-
+# Test final deployment CI/CD
 # 1. Inițializăm aplicația
 app = FastAPI(title="API Seif Securizat")
 
