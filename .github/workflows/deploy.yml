@@ -29,7 +29,13 @@ jobs:
           key: ${{ secrets.AWS_KEY }}
           script: |
             cd server
+            # Oprim containerul vechi (dacă există)
             docker stop vault-container || true
+            # Ștergem containerul vechi pentru a elibera portul 8000
             docker rm vault-container || true
+            # Ștergem imaginea veche pentru a ne asigura că se construiește de la zero
+            docker rmi vault-server || true
+            # Construim noua imagine
             docker build -t vault-server .
+            # Pornim noul container
             docker run -d -p 8000:8000 --name vault-container vault-server
