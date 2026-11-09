@@ -1,0 +1,6 @@
+venv/
+__pycache__/
+*.pem
+*.dcm
+*.enc
+stocare_cloud/
